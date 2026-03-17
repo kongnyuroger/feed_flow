@@ -88,6 +88,6 @@ require_once 'config.php';
         </div>
     </section>
 
-    <div class="footer"><footer>© Latest updates 2025. All rights reserved.</footer></div>
+    <div class="footer"><footer>Â© Latest updates 2025. All rights reserved.</footer></div>
 </body>
 </html>

@@ -203,7 +203,7 @@ $is_admin = (isset($_SESSION['user_email']) && $_SESSION['user_email'] == 'kenne
 
         <!-- Footer -->
         <div class="footer">
-            <footer>© Latest updates 2025. All rights reserved.</footer>
+            <footer>Â© Latest updates 2025. All rights reserved.</footer>
         </div> 
     </div>
     
