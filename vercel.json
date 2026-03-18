@@ -1,32 +1,23 @@
-﻿{
+{
   "functions": {
     "api/*.php": {
-      "runtime": "vercel-php@0.7.0"
+      "runtime": "vercel-php@0.7.1"
     }
   },
   "routes": [
-    {
-      "src": "^/test-simple\\.php$",
-      "dest": "/api/test-simple.php"
-    },
-    {
-      "src": "^/(.*)\\.php$",
-      "dest": "/api/$1.php"
-    },
-    {
-      "src": "^/style\\.css$",
-      "dest": "/public/style.css"
-    },
-    {
-      "src": "^/(.*)$",
-      "dest": "/api/index.php"
-    }
-  ],
-  "overrides": {
-    "api/*.php": {
-      "headers": {
-        "Content-Type": "text/html; charset=utf-8"
-      }
-    }
-  }
+    { "src": "/style\\.css",          "dest": "/public/style.css" },
+    { "src": "/responsiveness\\.css", "dest": "/public/responsiveness.css" },
+    { "src": "/script\\.js",          "dest": "/public/script.js" },
+    { "src": "/login\\.php",          "dest": "/api/login.php" },
+    { "src": "/register\\.php",       "dest": "/api/register.php" },
+    { "src": "/logout\\.php",         "dest": "/api/logout.php" },
+    { "src": "/admin\\.php",          "dest": "/api/admin.php" },
+    { "src": "/feedback\\.php",       "dest": "/api/feedback.php" },
+    { "src": "/features\\.php",       "dest": "/api/features.php" },
+    { "src": "/trending\\.php",       "dest": "/api/trending.php" },
+    { "src": "/categories\\.php",     "dest": "/api/categories.php" },
+    { "src": "/save_feed\\.php",      "dest": "/api/save_feed.php" },
+    { "src": "/delete_feed\\.php",    "dest": "/api/delete_feed.php" },
+    { "src": "/(.*)",                 "dest": "/api/index.php" }
+  ]
 }
