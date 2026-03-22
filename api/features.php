@@ -11,6 +11,7 @@ require_once 'config.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
      <link rel="stylesheet" href="responsiveness.css">
+     <link rel="stylesheet" href="mobile.css">
     <style>
         .features-page { padding: 4rem 2rem; background: var(--bg); min-height: 60vh; }
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1280px; margin: 0 auto; }

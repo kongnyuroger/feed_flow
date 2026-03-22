@@ -25,6 +25,8 @@ $feeds = $pdo->query("SELECT f.*, u.full_name FROM feeds f LEFT JOIN users u ON 
     <meta charset="UTF-8">
     <title>Admin Dashboard - FeedFlow</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="responsiveness.css">
+
     <link rel="stylesheet" href="style.css">
     <style>
         .admin-wrapper { display: flex; min-height: 100vh; }

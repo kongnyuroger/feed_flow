@@ -26,38 +26,46 @@ $is_admin = (isset($_SESSION['user_email']) && $_SESSION['user_email'] == 'kenne
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/responsiveness.css">
+    <link rel="stylesheet" href="/mobile.css">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <i class="fa-solid fa-rss"></i>
-                <span>FeedFlow</span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="/features.php">Features</a></li>
-                <li><a href="/trending.php">Trending</a></li>
-                <li><a href="/categories.php">Categories</a></li>
-            </ul>
-            <div class="nav-buttons" id="navButtons">
-                <a href="/feedback.php" class="btn btn-outline">Feedback</a>
-
-                <?php if ($is_admin): ?>
-                    <a href="/admin.php" class="btn btn-outline">Admin</a>
-                <?php endif; ?>
-
-                <?php if (isLoggedIn()): ?>
-                    <span class="user-greeting">Hi, <?php echo htmlspecialchars($currentUserName); ?></span>
-                    <a href="/logout.php" class="btn btn-outline">Logout</a>
-                <?php else: ?>
-                    <a href="/login.php" class="btn btn-outline">Log In</a>
-                    <a href="/register.php" class="btn btn-primary">Sign Up</a>
-                <?php endif; ?>
-            </div>
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <i class="fa-solid fa-rss"></i>
+            <span>FeedFlow</span>
         </div>
-    </nav>
-
+        
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        
+        <!-- Navigation Menu -->
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#trending">Trending</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="feedback.php">Feedback</a></li>
+            
+            <!-- Show Admin link only when user is logged in -->
+            <?php if (isset($_SESSION['user_id'])): ?>
+                <li><a href="admin.php">Admin Panel</a></li>
+            <?php endif; ?>
+        </ul>
+        
+        <div class="nav-buttons" id="navButtons">
+            <?php if (isset($_SESSION['user_id'])): ?>
+                <span class="user-greeting">Hi, <?php echo htmlspecialchars($_SESSION['user_name']); ?></span>
+                <a href="logout.php" class="btn btn-outline">Logout</a>
+            <?php else: ?>
+                <a href="login.php" class="btn btn-outline">Log In</a>
+                <a href="register.php" class="btn btn-primary">Sign Up</a>
+            <?php endif; ?>
+        </div>
+    </div>
+</nav>
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-container">
@@ -199,5 +207,42 @@ $is_admin = (isset($_SESSION['user_email']) && $_SESSION['user_email'] == 'kenne
         var isLoggedIn = <?php echo isLoggedIn() ? 'true' : 'false'; ?>;
     </script>
     <script src="/script.js"></script>
+    <script>
+// Mobile Menu Toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+    
+    if (mobileMenuBtn && navMenu) {
+        // Create overlay
+        const overlay = document.createElement('div');
+        overlay.className = 'menu-overlay';
+        document.body.appendChild(overlay);
+        
+        // Toggle menu
+        mobileMenuBtn.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+        });
+        
+        // Close menu when clicking overlay
+        overlay.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // Close menu when clicking a link
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    }
+});
+</script>
 </body>
 </html>

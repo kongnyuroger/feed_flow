@@ -1,0 +1,612 @@
+ /* ============================================
+   MOBILE RESPONSIVE STYLES WITH TOGGLE MENU
+   ============================================ */
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--primary);
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: all 0.3s;
+}
+
+.mobile-menu-btn:hover {
+    color: var(--primary-light);
+}
+
+/* Show mobile menu button on tablets and mobile */
+@media screen and (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    /* Hide navigation menu by default on mobile */
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: calc(100vh - 70px);
+        background: white;
+        flex-direction: column;
+        gap: 0;
+        padding: 1rem 0;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        transition: left 0.3s ease;
+        z-index: 1000;
+        display: flex !important;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-menu li {
+        width: 100%;
+        border-bottom: 1px solid var(--border);
+    }
+    
+    .nav-menu li a {
+        display: block;
+        padding: 1rem 1.5rem;
+        width: 100%;
+    }
+    
+    /* Adjust nav container */
+    .nav-container {
+        justify-content: space-between;
+        padding: 0.8rem 1rem;
+        position: relative;
+    }
+    
+    /* Nav buttons - keep visible but adjust */
+    .nav-buttons {
+        gap: 0.5rem;
+    }
+    
+    .nav-buttons .btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.75rem;
+    }
+    
+    .user-greeting {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.5rem;
+    }
+    
+    /* Overlay when menu is open */
+    .menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 999;
+        display: none;
+    }
+    
+    .menu-overlay.active {
+        display: block;
+    }
+}
+
+/* Very Small Mobile (480px and below) */
+@media screen and (max-width: 480px) {
+    .nav-buttons {
+        gap: 0.3rem;
+    }
+    
+    .nav-buttons .btn {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.7rem;
+    }
+    
+    .user-greeting {
+        display: none; /* Hide greeting on very small screens to save space */
+    }
+    
+    .mobile-menu-btn {
+        font-size: 1.3rem;
+    }
+    
+    .nav-menu {
+        top: 60px;
+        width: 70%;
+    }
+}
+
+/* Tablet and above - hide mobile button */
+@media screen and (min-width: 769px) {
+    .mobile-menu-btn {
+        display: none !important;
+    }
+    
+    .nav-menu {
+        position: static !important;
+        display: flex !important;
+        flex-direction: row !important;
+        width: auto !important;
+        height: auto !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+    }
+    
+    .nav-menu li {
+        width: auto !important;
+        border-bottom: none !important;
+    }
+}
+
+/* ===== REST OF RESPONSIVE STYLES ===== */
+@media screen and (max-width: 768px) {
+    /* Hero Section */
+    .hero {
+        padding: 2rem 1rem;
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+        text-align: center;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .hero-stats {
+        justify-content: center;
+        gap: 1.5rem;
+    }
+    
+    .stat-number {
+        font-size: 1.2rem;
+    }
+    
+    .stat-label {
+        font-size: 0.7rem;
+    }
+
+    /* Demo Feed */
+    .demo-feed {
+        padding: 1rem;
+    }
+    
+    .feed-card {
+        padding: 0.8rem;
+    }
+    
+    .feed-card h3 {
+        font-size: 0.9rem;
+    }
+
+    /* Main RSS Reader */
+    .main-head {
+        flex-direction: column;
+    }
+    
+    .aside-container {
+        width: 100%;
+        min-width: 100%;
+    }
+    
+    .aside-heading {
+        padding: 15px;
+        gap: 1rem;
+    }
+    
+    .aside-heading h1 {
+        font-size: 1.2rem;
+    }
+    
+    #add-feed {
+        height: 1.8rem;
+        width: 1.8rem;
+        font-size: 0.9rem;
+    }
+
+    /* Feed List */
+    #feed-list li {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .feed-li-el {
+        gap: 0.5rem;
+    }
+
+    /* Main Content */
+    .headings {
+        padding: 15px;
+    }
+    
+    .feed-heading h1 {
+        font-size: 1.4rem;
+    }
+    
+    .feed-heading span {
+        font-size: 0.8rem;
+    }
+
+    /* News Cards */
+    .news-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+        padding: 5px;
+    }
+    
+    .news-card, .featured-feeds .feed-item {
+        min-height: 350px;
+    }
+    
+    .news-card img, .featured-feeds .feed-item img {
+        height: 150px;
+    }
+    
+    .news-card h5, .featured-feeds .feed-item h3 {
+        font-size: 1rem;
+        padding: 0.8rem 0.8rem 0.3rem;
+    }
+    
+    .news-card p, .featured-feeds .feed-item p {
+        font-size: 0.85rem;
+        padding: 0 0.8rem 0.5rem;
+    }
+    
+    .news-card small {
+        font-size: 0.7rem;
+    }
+    
+    .news-card a, .featured-feeds .feed-item .read-more {
+        font-size: 0.8rem;
+        padding: 0.5rem;
+        margin: 0 0.8rem 0.8rem;
+    }
+
+    /* Featured Feeds */
+    .featured-feeds {
+        padding: 2rem 1rem;
+    }
+    
+    .featured-feeds .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .featured-feeds .feed-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+        padding: 0.5rem;
+    }
+
+    /* Modal/Form */
+    .feed-form1 {
+        width: 95%;
+    }
+    
+    .contact-form {
+        padding: 20px;
+    }
+    
+    .form-heading {
+        font-size: 1.4rem;
+    }
+    
+    .input input {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+    
+    .form-button {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .form-button button {
+        width: 100%;
+        padding: 10px;
+    }
+
+    /* Page Header */
+    .page-header {
+        padding: 2rem 1rem;
+    }
+    
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .page-header p {
+        font-size: 0.9rem;
+    }
+
+    /* Features Page */
+    .features-page {
+        padding: 2rem 1rem;
+    }
+    
+    .features-grid-detailed {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .feature-detailed-card {
+        padding: 1.5rem;
+    }
+    
+    .feature-icon-large {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .feature-icon-large i {
+        font-size: 2rem;
+    }
+    
+    .feature-detailed-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .feature-list-detailed li {
+        font-size: 0.9rem;
+    }
+
+    /* Trending Page */
+    .trending-page {
+        padding: 2rem 1rem;
+    }
+    
+    .trending-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .trending-card {
+        height: auto;
+        min-height: 360px;
+    }
+    
+    .trending-content {
+        padding: 1rem;
+    }
+    
+    .trending-content h3 {
+        font-size: 1rem;
+        height: 2.4rem;
+    }
+    
+    .trending-content p {
+        font-size: 0.8rem;
+        -webkit-line-clamp: 2;
+    }
+    
+    .trending-meta {
+        font-size: 0.7rem;
+    }
+    
+    .trending-topics-section {
+        padding: 2rem 1rem;
+    }
+    
+    .topics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Categories Page */
+    .categories-page {
+        padding: 2rem 1rem;
+    }
+    
+    .categories-grid-detailed {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .category-detailed-card {
+        padding: 1.2rem;
+    }
+
+    /* Feedback Page */
+    .feedback-container {
+        padding: 1rem;
+        margin: 2rem auto;
+    }
+    
+    .feedback-box {
+        padding: 1.5rem;
+    }
+    
+    .feedback-box h2 {
+        font-size: 1.5rem;
+    }
+
+    /* Admin Panel */
+    .admin-container {
+        padding: 1rem;
+    }
+    
+    .admin-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .admin-section {
+        padding: 1rem;
+        overflow-x: auto;
+    }
+    
+    .admin-table {
+        font-size: 0.85rem;
+    }
+    
+    .admin-table th,
+    .admin-table td {
+        padding: 0.5rem;
+    }
+
+    /* Login/Register Pages */
+    .login-container {
+        padding: 1rem;
+    }
+    
+    .login-box {
+        padding: 1.5rem;
+    }
+    
+    .login-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .login-header i {
+        font-size: 2.5rem;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 0.8rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Very Small Mobile (480px and below) */
+@media screen and (max-width: 480px) {
+    /* Hero */
+    .hero-content h1 {
+        font-size: 1.6rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .stat-item {
+        text-align: center;
+    }
+
+    /* Cards */
+    .news-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .news-card, .featured-feeds .feed-item {
+        min-height: 320px;
+    }
+    
+    .featured-feeds .feed-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Headings */
+    .feed-heading h1 {
+        font-size: 1.2rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    /* Modal */
+    .contact-form {
+        padding: 15px;
+    }
+    
+    .form-heading {
+        font-size: 1.2rem;
+    }
+    
+    .input label {
+        font-size: 0.9rem;
+    }
+
+    /* Page Header */
+    .page-header h1 {
+        font-size: 1.5rem;
+    }
+
+    /* Trending Cards */
+    .trending-card {
+        min-height: 320px;
+    }
+    
+    .trending-content h3 {
+        font-size: 0.9rem;
+        height: 2.2rem;
+    }
+    
+    .trending-content p {
+        font-size: 0.7rem;
+        -webkit-line-clamp: 2;
+    }
+    
+    .read-more {
+        font-size: 0.7rem;
+        padding: 0.3rem;
+    }
+
+    /* Category Cards */
+    .category-detailed-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .category-description {
+        font-size: 0.85rem;
+    }
+    
+    .tag {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.5rem;
+    }
+
+    /* Feature Cards */
+    .feature-detailed-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .feature-detailed-card p {
+        font-size: 0.85rem;
+    }
+    
+    .feature-list-detailed li {
+        font-size: 0.8rem;
+    }
+
+    /* Login */
+    .login-box {
+        padding: 1.2rem;
+    }
+    
+    .input-group input {
+        padding: 0.6rem;
+    }
+    
+    .login-btn {
+        padding: 0.6rem;
+    }
+}
