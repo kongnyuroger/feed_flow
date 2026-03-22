@@ -1,7 +1,7 @@
 
 
 const defaultfeeds = [
-    { id: 'bbc', name: 'BBC (Top Stories)', url: 'https://feeds.bbci.co.uk/news/rss.xml' },
+    { id: 'bbc', name: 'BBC AFRICA', url: 'https://feeds.bbci.co.uk/news/rss.xml' },
     { id: 'cnn', name: 'CNN (Top Stories)', url: 'http://rss.cnn.com/rss/cnn_topstories.rss' },
     { id: 'nyt-world', name: 'NYT (World)', url: 'https://www.nytimes.com/services/xml/rss/nyt/World.xml' },
     { id: 'al-jazeera', name: 'Al Jazeera (English)', url: 'https://www.aljazeera.com/xml/rss/all.xml' },
@@ -9,8 +9,7 @@ const defaultfeeds = [
     { id: 'pbs', name: 'PBS (World)', url: 'https://www.pbs.org/newshour/feeds/rss/podcasts/world' },
     { id: 'new-york', name: 'New York Times (World)', url: 'https://rss.nytimes.com/services/xml/rss/nyt/World.xml' },
     { id: 'the guardian', name: 'The Guardian (World)', url: 'https://www.theguardian.com/world/rss' },
-    { id: 'crtv', name: 'CRTV', url: 'https://WWW.crtv.cm/feed/' },
-    { id: 'equinox', name: 'Equinox', url: 'https://feeds.feedburner.com/EquinoxeRadio' },
+   
 ];
 
 // DOM Elements
