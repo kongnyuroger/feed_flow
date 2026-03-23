@@ -611,31 +611,33 @@
 
     /* Login & Register Full Screen */
     .login-page {
-        align-items: flex-start;
-        background: white;
+        align-items: flex-start !important;
+        background: white !important;
+        display: flex !important;
     }
     
     .login-container {
-        width: 100%;
-        max-width: 100%;
-        height: 100vh;
-        padding: 0;
-        margin: 0;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 100vh !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
     
     .login-box {
-        width: 100%;
-        min-height: 100vh;
-        border-radius: 0;
-        box-shadow: none;
-        padding: 3rem 1.5rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        width: 100% !important;
+        min-height: 100vh !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        padding: 3rem 1.5rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        background: white !important;
     }
 
     .login-header {
-        margin-bottom: 2rem;
+        margin-bottom: 2rem !important;
     }
 
     .input-group input {
