@@ -461,19 +461,31 @@
 
     /* Login/Register Pages */
     .login-container {
-        padding: 1rem;
+        width: 100%;
+        max-width: 460px;
+        padding: 1.5rem;
+        margin: 0 auto;
     }
     
     .login-box {
-        padding: 1.5rem;
+        padding: 2.5rem 2rem;
+        border-radius: 1.2rem;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.25);
     }
     
     .login-header h2 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
     }
     
     .login-header i {
-        font-size: 2.5rem;
+        font-size: 3.5rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .input-group label {
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
     }
 
     /* Footer */
@@ -599,14 +611,19 @@
 
     /* Login */
     .login-box {
-        padding: 1.2rem;
+        padding: 1.8rem;
     }
     
     .input-group input {
-        padding: 0.6rem;
+        padding: 0.8rem;
     }
     
     .login-btn {
-        padding: 0.6rem;
+        padding: 0.8rem;
+    }
+    
+    .login-container {
+        width: 100%;
+        padding: 1.2rem;
     }
 }
