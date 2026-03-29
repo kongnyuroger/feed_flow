@@ -44,9 +44,9 @@ $is_admin = (isset($_SESSION['user_email']) && $_SESSION['user_email'] == 'kenne
         
         <!-- Navigation Menu -->
         <ul class="nav-menu" id="navMenu">
-            <li><a href="#features">Features</a></li>
-            <li><a href="#trending">Trending</a></li>
-            <li><a href="#categories">Categories</a></li>
+            <li><a href="/features.php">Features</a></li>
+            <li><a href="/trending.php">Trending</a></li>
+            <li><a href="/categories.php">Categories</a></li>
             <li><a href="feedback.php">Feedback</a></li>
             
             <!-- Show Admin link only when user is logged in -->
