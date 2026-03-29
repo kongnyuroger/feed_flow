@@ -33,24 +33,56 @@ let currentlyActiveItem = null;
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
-    renderfeedlist();
-    
+
     // Check if user is logged in (from PHP variable)
     if (typeof isLoggedIn !== 'undefined' && isLoggedIn) {
+        // User is logged in: PHP already rendered the DB feed list.
+        // Do NOT call renderfeedlist() — it would overwrite the DB feeds with localStorage.
         document.querySelector('.main-container').style.display = 'block';
-        if (currentfeeds.length > 0) {
-            const initialFeed = currentfeeds.find(feed => feed.url === selectedfeedUrl) || currentfeeds[0];
-            if (initialFeed) {
-                selectedfeed(initialFeed.url, initialFeed.name);
-            }
-        }
+
+        // Attach click listeners to PHP-rendered feed items
+        attachDbFeedListeners();
     } else {
+        // Not logged in: use localStorage feeds
+        renderfeedlist();
         document.querySelector('.main-container').style.display = 'none';
     }
 
-   
     loadFeaturedFeeds();
 });
+
+// Attach click listeners to the PHP-server-rendered feed <li> elements
+function attachDbFeedListeners() {
+    const items = document.querySelectorAll('#feed-list .feed-li-el');
+    items.forEach(function(item) {
+        const url  = item.dataset.url;
+        const name = item.dataset.name;
+
+        const nameSpan = item.querySelector('.feed-name-span');
+        if (nameSpan) {
+            nameSpan.addEventListener('click', function(event) {
+                event.stopPropagation();
+                // Highlight active item
+                if (currentlyActiveItem) {
+                    currentlyActiveItem.classList.remove('active-li');
+                }
+                item.classList.add('active-li');
+                currentlyActiveItem = item;
+                selectedfeed(url, name);
+            });
+        }
+
+        // Make the whole <li> clickable too
+        item.addEventListener('click', function() {
+            if (currentlyActiveItem) {
+                currentlyActiveItem.classList.remove('active-li');
+            }
+            item.classList.add('active-li');
+            currentlyActiveItem = item;
+            selectedfeed(url, name);
+        });
+    });
+}
 
 
 function showLoading() {
@@ -429,7 +461,7 @@ window.deleteFeed = async function(feedId, event) {
     }
     
     try {
-        const response = await fetch('delete-feed.php', {
+        const response = await fetch('/delete_feed.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ feed_id: feedId })
